@@ -14,22 +14,11 @@
     },
     "devDependencies": {
         "@types/node": "^17.0.35",
-        "pkg": "^5.7.0",
         "typescript": "^4.5.4"
     },
     "scripts": {
         "compile": "rm -rf dist/ && tsc",
         "start": "yarn compile && node dist/index.js",
-        "pkg": "yarn compile && pkg .",
         "prepublish": "yarn compile"
-    },
-    "pkg": {
-        "scripts": "dist/**/*.js",
-        "targets": [
-            "node16-linux-x64",
-            "node16-macos-x64",
-            "node16-win-x64"
-        ],
-        "outputPath": "dist"
     }
 }
