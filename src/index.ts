@@ -7,6 +7,7 @@ import update from "./subcommands/update"
 import generate from "./subcommands/generate"
 import remove from "./subcommands/remove"
 import list from "./subcommands/list"
+import qr from "./subcommands/qr"
 
 const main = async () => {
     const program = new Command()
@@ -14,13 +15,14 @@ const main = async () => {
     program
         .name(programName)
         .description("Simple 2FA manager")
-        .version("0.1.4")
+        .version("1.0.0")
 
     add(program)
     update(program)
     generate(program)
     remove(program)
     list(program)
+    qr(program)
 
     program.parse()
 }

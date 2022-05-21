@@ -11,11 +11,14 @@ It's cross-platform and works on Linux, macOS, and Windows (although it's not te
 ```sh
 # Global help
 2fa-mgr help
-# Help for subcommand
+# Help for a subcommand
 2fa-mgr help generate
 
 # Add an app
 2fa-mgr add <app_name> <secret>
+
+# Add from a QR code .png file
+2fa-mgr qr <file_path>
 
 # Generate a code
 2fa-mgr generate <app_name> # aliased to gen for convenience
@@ -35,7 +38,3 @@ npm install -g 2fa-mgr # might need sudo on some systems
 ### Dependencies
 
 - (optional) xsel - for copying to clipboard on linux (yes, it will work on wayland too, but you need xwayland for that)
-
-## Planned features
-
-- QR code reader

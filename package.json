@@ -1,15 +1,18 @@
 {
     "name": "2fa-mgr",
     "description": "Simple 2FA manager",
-    "version": "0.1.4",
+    "version": "1.0.0",
     "author": "marzeq",
     "bin": "dist/index.js",
     "license": "GPL-3.0+",
     "dependencies": {
+        "@types/pngjs": "^6.0.1",
         "@types/totp-generator": "^0.0.4",
         "clipboardy": "2",
         "commander": "^9.2.0",
+        "jsqr": "^1.4.0",
         "password-prompt": "^1.1.2",
+        "pngjs": "^6.0.0",
         "totp-generator": "^0.0.13"
     },
     "devDependencies": {

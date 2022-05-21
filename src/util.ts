@@ -2,6 +2,8 @@ import os from "node:os"
 import path from "node:path"
 import fs from "node:fs/promises"
 import crypto from "node:crypto"
+import { createReadStream } from "node:fs"
+import { PNG } from "pngjs"
 import type { App, Config } from "./types"
 
 export const programName: "2fa-mgr" = "2fa-mgr"
@@ -109,3 +111,27 @@ export const decryptStr = (str: string, key: string) => {
 
     return decrypted
 }
+
+export const readQrFile = (path: string): Promise<ImageData> => {
+    return new Promise((resolve, reject) => {
+        const png = new PNG({
+            filterType: 4
+        })
+
+        png.on("parsed", async () => {
+            const data = png.data
+
+            const imageData = {
+                width: png.width,
+                height: png.height,
+                data: new Uint8ClampedArray(data)
+            }
+
+            resolve(imageData)
+        })
+
+        png.on("error", reject)
+
+        createReadStream(path).pipe(png)
+    })
+}   
