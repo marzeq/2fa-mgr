@@ -67,4 +67,3 @@ You might also want to remove the platform specific suffix from the binary name 
 
 - **Find an alternative to pkg (the filesizes are huge).** Ideally without node as a runtime dependency, but we'll see how that goes. Maybe I'll just rewrite this in like rust or something (this would also immensely help with the build process, and maybe even with packaging to linux repos and to crates.io).
 - QR code reader
-- Encrypt the secret
