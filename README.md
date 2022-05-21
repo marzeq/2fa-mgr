@@ -1,8 +1,6 @@
 # simple2fa
 
-**!!! DISCLAIMER: THIS PROJECT IS USED FOR MOSTLY PERSONAL USE THAT I SHARED BECAUSE I WANTED TO. BECAUSE YOU ARE DEALING WITH STORING SENSITIVE (!!!) _UNCENCRYPTED_ DATA, I AM NOT RESPONSIBLE FOR ANYTHING YOU DO WITH THIS PROJECT. !!!**
-
-**!!! I REPEAT AGAIN, YOU ARE STORING _UNENCRYPTED_ DATA, AND YOU ARE THE ONLY PERSON THAT'S RESPONSIBLE FOR _ANY_ DAMAGE/DATA LOSS/HACK. !!!**
+**Disclaimer: I am not responsible for any damages caused by this software.**
 
 This is a simple 2FA manager that allows you to generate a 6-digit code that can be used to authenticate your account.
 
