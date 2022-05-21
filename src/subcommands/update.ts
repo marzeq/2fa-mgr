@@ -8,7 +8,7 @@ const update: SubcommandFunction = async program => {
         .aliases(["edit"])
         .argument("<app>", "The name of the app")
         .option("-n, --name [name]", "new name for the app")
-        .option("-s, --secret [secret", "secret key")
+        .option("-s, --secret [secret]", "secret key")
         .option("-l, --length [length]", "length of the TOTP")
         .option("-i, --interval [interval]", "interval between TOTP updates")
         .option("-d, --decrypt", "convert the secret key from encrypted to unencrypted")
