@@ -29,9 +29,9 @@ const update: SubcommandFunction = async program => {
 
             if (encrypt && decrypt)
                 return console.error(`You can't use both --encrypt and --decrypt`)
-            else if (encrypt && !_appcfg.encrypted)
+            else if (encrypt && _appcfg.encrypted)
                 return console.error(`The secret key for ${app} is already encrypted`)
-            else if (decrypt && _appcfg.encrypted)
+            else if (decrypt && !_appcfg.encrypted)
                 return console.error(`The secret key for ${app} is already unencrypted`)
 
             let encrypted: boolean = _appcfg.encrypted
