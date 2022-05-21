@@ -14,7 +14,7 @@ const main = async () => {
     program
         .name(programName)
         .description("Simple 2FA manager")
-        .version("0.1.1")
+        .version("0.1.4")
 
     add(program)
     update(program)
