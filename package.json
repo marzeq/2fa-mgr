@@ -1,14 +1,15 @@
 {
     "name": "simple2fa",
     "description": "Simple 2FA manager",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "author": "marzeq",
     "bin": "dist/index.js",
-    "license": "GPL-v3",
+    "license": "GPL-3.0+",
     "dependencies": {
         "@types/totp-generator": "^0.0.4",
         "clipboardy": "2",
         "commander": "^9.2.0",
+        "password-prompt": "^1.1.2",
         "totp-generator": "^0.0.13"
     },
     "devDependencies": {

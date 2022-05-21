@@ -1,7 +1,8 @@
 import clipboardy from "clipboardy"
+import password from "password-prompt"
 import totp from "totp-generator"
 import type { SubcommandFunction } from "../types"
-import { getApp } from "../util"
+import { decryptStr, getApp } from "../util"
 
 const generate: SubcommandFunction = async program => {
     program
@@ -19,7 +20,23 @@ const generate: SubcommandFunction = async program => {
             if (!appcfg)
                 return console.error(`App ${app} not found`)
 
-            const psswd = totp(appcfg.secret, {
+            let secret = appcfg.secret
+
+            if (appcfg.encrypted) {
+                const pswd = await password("Enter password: ", {
+                    method: "hide"
+                })
+                try {
+                    secret = decryptStr(secret, pswd)
+                } catch (e: any) {
+                    if (e.code === "ERR_OSSL_BAD_DECRYPT")
+                        return console.error("Wrong password")
+                    else
+                        throw e
+                }
+            }
+
+            const psswd = totp(secret, {
                 digits: appcfg.length,
                 period: appcfg.interval
             }),

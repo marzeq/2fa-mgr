@@ -13,4 +13,5 @@ export interface App {
     secret: string
     length: number
     interval: number
+    encrypted: boolean
 }

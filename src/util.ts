@@ -1,6 +1,7 @@
 import os from "node:os"
 import path from "node:path"
 import fs from "node:fs/promises"
+import crypto from "node:crypto"
 import type { App, Config } from "./types"
 
 export const programName: "simple2fa" = "simple2fa"
@@ -78,3 +79,33 @@ export const getApps = async (): Promise<string[]> => {
 }
 
 export const parseSecret = (secret: string) => secret.toUpperCase().replaceAll("-", "").replaceAll(" ", "")
+
+export const encryptStr = (str: string, salt: string) => {
+    const iv = crypto.randomBytes(16),
+        hash = crypto.createHash("sha1")
+
+    hash.update(salt)
+
+    const key = hash.digest().slice(0, 16),
+        cipher = crypto.createCipheriv("aes-128-cbc", key, iv)
+
+    let encrypted = cipher.update(str, "utf8", "hex")
+    encrypted += cipher.final("hex")
+
+    return iv.toString("hex") + ":" + encrypted
+}
+
+export const decryptStr = (str: string, key: string) => {
+    const [iv, encrypted] = str.split(":"),
+        ivBuffer = Buffer.from(iv, "hex"),
+        hash = crypto.createHash("sha1")
+
+    hash.update(key)
+
+    const cipher = crypto.createDecipheriv("aes-128-cbc", hash.digest().slice(0, 16), ivBuffer)
+
+    let decrypted = cipher.update(encrypted, "hex", "utf8")
+    decrypted += cipher.final("utf8")
+
+    return decrypted
+}
