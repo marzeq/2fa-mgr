@@ -29,7 +29,7 @@ const generate: SubcommandFunction = async program => {
                 try {
                     secret = decryptStr(secret, pswd)
                 } catch (e: any) {
-                    if (e.code === "ERR_OSSL_BAD_DECRYPT")
+                    if (e.reason === "bad decrypt")
                         return console.error("Wrong password")
                     else
                         throw e

@@ -1,7 +1,7 @@
 {
     "name": "simple2fa",
     "description": "Simple 2FA manager",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "author": "marzeq",
     "bin": "dist/index.js",
     "license": "GPL-3.0+",
