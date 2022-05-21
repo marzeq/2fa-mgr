@@ -1,7 +1,7 @@
 {
-    "name": "simple2fa",
+    "name": "2fa-mgr",
     "description": "Simple 2FA manager",
-    "version": "0.1.1",
+    "version": "0.1.3",
     "author": "marzeq",
     "bin": "dist/index.js",
     "license": "GPL-3.0+",
@@ -18,8 +18,10 @@
         "typescript": "^4.5.4"
     },
     "scripts": {
-        "start": "rm -rf dist/ && tsc && node dist/index.js",
-        "pkg": "rm -rf dist/ && tsc && pkg ."
+        "compile": "rm -rf dist/ && tsc",
+        "start": "yarn compile && node dist/index.js",
+        "pkg": "yarn compile && pkg .",
+        "prepublish": "yarn compile"
     },
     "pkg": {
         "scripts": "dist/**/*.js",

@@ -1,4 +1,4 @@
-# simple2fa
+# 2fa-mgr
 
 **Disclaimer: I am not responsible for any damages caused by this software.**
 
@@ -10,15 +10,15 @@ It's cross-platform and works on Linux, macOS, and Windows (although it's not te
 
 ```sh
 # Global help
-simple2fa help
+2fa-mgr help
 # Help for subcommand
-simple2fa help generate
+2fa-mgr help generate
 
 # Add an app
-simple2fa add <app_name> <secret>
+2fa-mgr add <app_name> <secret>
 
 # Generate a code
-simple2fa generate <app_name> # aliased to gen for convenience
+2fa-mgr generate <app_name> # aliased to gen for convenience
 ```
 
 For more subcommands and options, see the global and subcommand specific help pages.
@@ -41,17 +41,17 @@ The rest will be installed by yarn when you run `yarn` in the build process.
 ### Build
 
 ```
-git clone https://github.com/marzeq/simple2fa.git
-cd simple2fa
+git clone https://github.com/marzeq/2fa-mgr.git
+cd 2fa-mgr
 yarn
 yarn pkg
 ```
 
 Now you should have 3 binaries in `dist/`:
 
-- `simple2fa-linux`
-- `simple2fa-macos`
-- `simple2fa-win.exe`
+- `2fa-mgr-linux`
+- `2fa-mgr-macos`
+- `2fa-mgr-win.exe`
 
 Simply run the one for your platform to start the application.
 

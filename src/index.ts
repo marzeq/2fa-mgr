@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { Command } from "commander"
 import { programName } from "./util"
 import add from "./subcommands/add"

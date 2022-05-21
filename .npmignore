@@ -1,0 +1,7 @@
+src/
+.gitingore
+.prettierrc
+tsconfig.json
+yarn-error.log
+.env
+yarn.lock

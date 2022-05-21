@@ -4,7 +4,7 @@ import fs from "node:fs/promises"
 import crypto from "node:crypto"
 import type { App, Config } from "./types"
 
-export const programName: "simple2fa" = "simple2fa"
+export const programName: "2fa-mgr" = "2fa-mgr"
 
 export const platform: "win32" | "darwin" | "linux" = os.platform() as any
 
