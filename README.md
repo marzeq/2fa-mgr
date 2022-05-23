@@ -29,11 +29,10 @@ For more subcommands and options, see the global and subcommand specific help pa
 ## Installation
 
 ```sh
-# One time run (auto updates)
-npx 2fa-mgr
-# Install globally
 npm install -g 2fa-mgr # might need sudo on some systems
 ```
+
+**Remember to sync your NTP time!**
 
 ### Dependencies
 
