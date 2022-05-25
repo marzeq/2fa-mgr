@@ -7,10 +7,7 @@ const remove: SubcommandFunction = async program => {
         .aliases(["rm", "delete"])
         .argument("<app>", "name of the app")
         .description("remove an app")
-        .action(async (app: string, secret: string, { length, interval }: {
-            length: string
-            interval: string
-        }) => {
+        .action(async (app: string) => {
             if (!(await getApp(app)))
                 return console.error(`App ${app} not found`)
 
