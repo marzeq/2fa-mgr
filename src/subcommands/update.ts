@@ -29,15 +29,26 @@ const update: SubcommandFunction = async program => {
 
             if (encrypt && decrypt)
                 return console.error(`You can't use both --encrypt and --decrypt`)
-            else if (encrypt && _appcfg.encrypted)
-                return console.error(`The secret key for ${app} is already encrypted`)
-            else if (decrypt && !_appcfg.encrypted)
-                return console.error(`The secret key for ${app} is already unencrypted`)
 
             let encrypted: boolean = _appcfg.encrypted
 
             if (encrypt) {
-                const pswd = await password("Enter password: ", {
+                if (_appcfg.encrypted) {
+                    try {
+                        secret = decryptStr(_appcfg.secret, await password("Enter the current encryption password: ", {
+                            method: "hide"
+                        }))
+                    }
+                    catch (e: any) {
+                        if (e.reason === "bad decrypt")
+                            return console.error("Wrong password")
+                        else
+                            return console.trace(e)
+                    }
+                }
+
+
+                const pswd = await password("Enter the new encryption password: ", {
                     method: "hide"
                 })
                 try {
@@ -47,7 +58,7 @@ const update: SubcommandFunction = async program => {
                 }
                 encrypted = true
             } else if (decrypt) {
-                const pswd = await password("Enter password: ", {
+                const pswd = await password("Enter the current encryption password: ", {
                     method: "hide"
                 })
                 try {

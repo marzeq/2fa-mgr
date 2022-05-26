@@ -38,7 +38,8 @@ else if (platform === "linux") {
     else
         throw new Error("Could not determine config directory because neither XDG_CONFIG_HOME, HOME nor USER are set")
 } else
-    throw new Error(`Unsupported platform: ${platform}`)
+    throw new Error(`Unsupported platform ${platform}!
+Please file an issue or make a PR at https://github.com/marzeq/2fa-mgr to add your platform.`)
 
 export const configFile = path.join(configDir, "config.json")
 

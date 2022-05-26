@@ -54,7 +54,7 @@ const qr: SubcommandFunction = async program => {
 Please use the "update" command to update an existing app`)
 
             if (!noencrypt) {
-                const pswd = await password("Enter password: ", {
+                const pswd = await password("Enter the encryption password: ", {
                     method: "hide"
                 })
                 try {
